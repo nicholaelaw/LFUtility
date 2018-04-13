@@ -1,0 +1,11 @@
+{
+    "args" : [
+        "-IC:/Program Files/RStudio/resources/libclang/builtin-headers/3.4",
+        "-IC:/Users/muyifeng/Documents/R/win-library/3.4/Rcpp/include",
+        "-IC:/PROGRA~1/R/R-34~1.4/include",
+        "-DNDEBUG"
+    ],
+    "hash" : "1523608653",
+    "is_cpp" : true,
+    "pch" : "Rcpp"
+}

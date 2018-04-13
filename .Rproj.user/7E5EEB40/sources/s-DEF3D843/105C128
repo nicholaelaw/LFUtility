@@ -1,0 +1,24 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1523609546633.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "105C128",
+    "lastKnownWriteTime" : 1523610859,
+    "last_content_update" : 1523610859766,
+    "path" : "D:/Projects/LFUtility/R/encryptDecrypt.R",
+    "project_path" : "R/encryptDecrypt.R",
+    "properties" : {
+        "cursorPosition" : "23,0",
+        "docOutlineVisible" : "1",
+        "scrollLine" : "7",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

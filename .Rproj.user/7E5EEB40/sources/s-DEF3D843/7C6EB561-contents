@@ -1,0 +1,12 @@
+{
+  "base_url": "http://125.64.94.49:89/exstatic/json/jkAction_getzonghe.action",
+  "login_url": "http://125.64.94.49:89/exstatic/json/loginAction_login.action",
+  "logout_url": "http://125.64.94.49:89/exstatic/json/loginAction_refSession.action",
+  "url_list": "zw_url.csv",
+  "names": "zw_names.csv",
+  "auth": {
+    "userName": "WAoAAAACAAMDAgACAwAAAAAQAAAAAQAEAAkAAAAHbGZyejAxNg==",
+    "userPass": "WAoAAAACAAMDAgACAwAAAAAQAAAAAQAEAAkAAAAGMjMxMzY2",
+    "type": 0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "base_url": "http://api.tianyigps.cn/gps-intf/api/",
+  "base_url_test": "http://120.27.183.86/gps-intf/api/",
+  "url_list": "ty_url.csv",
+  "names": "ty_names.csv",
+  "auth": {
+    "userAccount": "WAoAAAACAAMDAgACAwAAAAAQAAAAAQAEAAkAAAAFbGlmYW4=",
+    "token":"WAoAAAACAAMDAgACAwAAAAAQAAAAAQAEAAkAAAACNDM=",
+    "sign":"WAoAAAACAAMDAgACAwAAAAAQAAAAAQAEAAkAAAAgOTFjNTgzMzY2MWZhNjNkNmM3OTY3YzZk\nYzY1ODEyZTU="
+  },
+  "auth_test": {
+    "userAccount": "WAoAAAACAAMDAgACAwAAAAAQAAAAAQAEAAkAAAAEdGVzdA==",
+    "token":"WAoAAAACAAMDAgACAwAAAAAQAAAAAQAEAAkAAAAEdGVzdA==",
+    "sign":"WAoAAAACAAMDAgACAwAAAAAQAAAAAQAEAAkAAAA2ZjAzMmYyN2VlMThmOWRlNjdhM2JiOWMx\nNmVhZTU3YjMmaW1laXM9MzUyNTQ0MDcxNzgxMzIz"
+  }
+}

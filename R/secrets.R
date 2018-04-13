@@ -1,0 +1,30 @@
+#' Get List of Github User
+#'
+#' @param FILE CSV file containing a list of user name and associated email name.
+#'
+#' @return User list as `data.table`
+#' @export getGHUserList
+getGHUserList <- function(FILE) {
+  is.readable(file.path(FILE))
+  result <- fread(input = FILE, stringsAsFactors = FALSE)
+}
+
+createPayload <- function(DATA = './data', VAULT = './payload', USERS) {
+  dataDir  <- file.path(DATA)
+  vaultDir <- file.path(VAULT)
+  if (!dir.exists(vaultDir)) {dir.create(vaultDir)}
+
+  config     <- fromJSON(txt = file.path(DATA, 'config.json'))
+  ghUserList <- getGHUserList(USERS)
+  userList   <- list_users(vault = vaultDir)
+
+  for (i in 1L:length(ghUserList)) {
+    if (!any(userList == ghUserList[i, github_email])) {
+      add_github_user(
+        github_user = ghUserList[i, github_user],
+        email       = ghUserList[i, github_email],
+        vault       = vaultDir,
+        i           = ghUserList[i, index])
+    }
+  }
+}

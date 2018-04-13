@@ -1,0 +1,62 @@
+{
+  "config_name": "LFDT_configuration",
+  "config_version": "0.1",
+  "authorised_users": ["nicholaelaw-MBP", "LIFAN-RM", "aliyun", "nicholaelaw-PC"],
+  "service_providers": ["lingyou", "zhongwei", "tianyi", "zhongrui", "lifandms"], //
+  "lingyou": {
+    "login_url": "http://106.15.38.77:8080/LFRZZL/loginuser.action",
+    "root_url": "http://106.15.38.77:8080/LFRZZL/",
+    "base_url": "http://106.15.38.77:8080/LFRZZL/listjson",
+    "detail_url": "http://106.15.38.77:8080/LFRZZL/view",
+    "pull_url": "http://106.15.38.77:8099/LFRZZL_DATA/",
+    "names": "ly_names.csv",
+    "auth": {
+      "user": "mouyifeng",
+      "pswd": "ly325ee77"
+    },
+    "api_key": "z6as0nl2n5bk8p4d2pietrnc7aqwc",
+    "status_current": ["起租还款中","提前结清中","正常还款中"],
+    "status_terminated": ["强制提前还款结清", "正常还款结清", "正常提前还款结清"]
+  },
+  "zhongwei": {
+    "base_url": "http://125.64.94.49:89/exstatic/json/jkAction_getzonghe.action",
+    "login_url": "http://125.64.94.49:89/exstatic/json/loginAction_login.action",
+    "logout_url": "http://125.64.94.49:89/exstatic/json/loginAction_refSession.action",
+    "names": "zw_names.csv",
+    "auth": {
+      "userName": "lfrz016",
+      "userPass": "231366",
+      "type": 0
+    }
+  },
+  "tianyi": {
+    "base_url": "http://api.tianyigps.cn/gps-intf/api/",
+    "base_url_test": "http://120.27.183.86/gps-intf/api/",
+    "names": "ty_names.csv",
+    "auth": {
+      "userAccount": "lifan",
+      "token":"43",
+      "sign":"91c5833661fa63d6c7967c6dc65812e5"
+    },
+    "auth_test": {
+      "userAccount": "test",
+      "token":"test",
+      "sign":"f032f27ee18f9de67a3bb9c16eae57b3"
+    }
+  },
+  "zhongrui": {
+    "url": "ftp://lifan.lunz.cn/",
+    "auth": {
+      "user": "lifan",
+      "pswd": "123456"
+    }
+  },
+  "lifandms": {
+    "login_url": "http://dms.lifan.com:8090/lfdms/LoginAction/login.do",
+    "base_url": "http://dms.lifan.com:8090/lfdms/",
+    "auth": {
+      "user": "lifanzulin",
+      "pswd": "lifanzulin"
+    }
+  }
+}
