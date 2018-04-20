@@ -1,9 +1,10 @@
 # Import packages
 #' @useDynLib LFUtility, .registration = TRUE
 #' @import data.table
-#' @import secret
-#' @import openxlsx
+#' @import magrittr
 #' @import assertthat
-#' @import jsonlite
 #' @importFrom Rcpp evalCpp
+## @import secret
+## @import openxlsx
+## @import jsonlite
 NULL

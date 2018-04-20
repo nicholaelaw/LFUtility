@@ -1,13 +1,36 @@
 #' Get List of Github User
 #'
 #' @param FILE CSV file containing a list of user name and associated email name.
+#' Default location is \code{./vault_users/gh_users.csv}
 #'
 #' @return User list as `data.table`
 #' @export getGHUserList
 getGHUserList <- function(FILE) {
-  is.readable(file.path(FILE))
-  result <- fread(input = FILE, stringsAsFactors = FALSE)
+  if (missing(FILE)) {
+    filePath <- normalizePath('./vault_users/gh_users.csv')
+  } else {
+    filePath <- normalizePath(FILE)
+  }
+  is.readable(filePath)
+
+  result <- fread(input = filePath, stringsAsFactors = FALSE)
 }
+
+
+addPayload <- function(DATA = './data/', VAULT, GH_USERS) {
+  if (dir.exists(normalizePath('../LFDT2'))) {
+
+  } else {
+
+  }
+
+}
+
+updatePayload <- function(DATA, VAULT, GH_USERS) {
+
+}
+
+
 
 createPayload <- function(DATA = './data', VAULT = './payload', USERS) {
   dataDir  <- file.path(DATA)
@@ -28,3 +51,4 @@ createPayload <- function(DATA = './data', VAULT = './payload', USERS) {
     }
   }
 }
+
