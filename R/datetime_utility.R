@@ -128,7 +128,7 @@ as.Time <- function(STR, FORMAT, OFFSET = '+0800', tz = 'Asia/Chongqing', remove
       tz = tz
     )
   } else {
-    pilot  <- STR[!(is.na(STR) | STR == '')][1L]
+    pilot  <- STR[!(is.na(STR) | toString(STR) == '')][1L]
     # Check that pilot actually exists
     if (!assertthat::noNA(pilot)) {
       message('as.Time: No non-NA values found.')
