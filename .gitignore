@@ -2,6 +2,11 @@
 .Rhistory
 .Rapp.history
 
+# Rcpp compiled platform-specific binaries
+.o
+.so
+.dll
+
 # Session Data files
 .RData
 # Example code in package build process
