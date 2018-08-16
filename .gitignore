@@ -2,10 +2,17 @@
 .Rhistory
 .Rapp.history
 
+# Excel files
+*.xls
+*.xlsx
+*.xlsm
+*.xlsb
+tmp/*
+
 # Rcpp compiled platform-specific binaries
-.o
-.so
-.dll
+*.o
+*.so
+*.dll
 
 # Session Data files
 .RData
