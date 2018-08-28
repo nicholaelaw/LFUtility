@@ -1,100 +1,3 @@
-#' @export make.yyyymm
-make.yyyymm <- function(DATE, sep = '-', useChar = FALSE) {
-
-  if (!suppressPackageStartupMessages(require(stringi) & require(lubridate))) {
-    stop('This function requires packages stringi and lubridate')
-  }
-
-  if (any(class(DATE) == 'character')) {
-    thisDate <- as.Time(DATE)
-    assertthat::assert_that(!is.na(thisDate), msg = 'Incorrect date string for make.yyyymm.')
-  } else if (any(class(DATE) %in% c('POSIXct', 'POSIXt', 'Date'))) {
-    thisDate <- DATE
-  }
-
-  # 是否使用xxxx年x月？
-  if (useChar) {
-    result <- paste0(
-      lubridate::year(thisDate), '年',
-      lubridate::month(thisDate), '月'
-    )
-  } else {
-    result <- paste0(
-      year(thisDate),
-      sep,
-      stringi::stri_pad_left(month(thisDate), width = 2L, pad = '0')
-    )
-  }
-
-  return(result)
-}
-
-#' @export make.yyyymmdd
-make.yyyymmdd <- function(DATE, sep = '-', useChar = FALSE) {
-
-  if (!suppressPackageStartupMessages(require(stringi) & require(lubridate))) {
-    stop('This function requires packages stringi and lubridate')
-  }
-
-  if (any(class(DATE) == 'character')) {
-    thisDate <- as.Time(DATE)
-    assertthat::assert_that(!is.na(thisDate), msg = 'Incorrect date string for make.yyyymmdd.')
-  } else if (any(class(DATE) %in% c('POSIXct', 'POSIXt', 'Date'))) {
-    thisDate <- DATE
-  }
-
-  # 是否使用yyyy年m月d日？
-  if (useChar) {
-    result <- paste0(
-      lubridate::year(thisDate), '年',
-      lubridate::month(thisDate), '月',
-      lubridate::day(thisDate), '日'
-    )
-  } else {
-    result <- paste0(
-      year(thisDate),
-      sep,
-      stringi::stri_pad_left(month(thisDate), width = 2L, pad = '0'),
-      sep,
-      stringi::stri_pad_left(day(thisDate), width = 2L, pad = '0')
-    )
-  }
-
-  return(result)
-}
-
-#' @export make.mmdd
-make.mmdd <- function(DATE, sep = '-', useChar = FALSE) {
-
-  if (!suppressPackageStartupMessages(require(stringi) & require(lubridate))) {
-    stop('This function requires packages stringi and lubridate')
-  }
-
-  if (any(class(DATE) == 'character')) {
-    thisDate <- as.Time(DATE)
-    assertthat::assert_that(!is.na(thisDate), msg = 'Incorrect date string for make.yyyymm.')
-  } else if (any(class(DATE) %in% c('POSIXct', 'POSIXt', 'Date'))) {
-    thisDate <- DATE
-  }
-
-  # 是否使用xxxx年x月？
-  if (useChar) {
-    result <- paste0(
-      lubridate::month(thisDate), '月',
-      lubridate::day(thisDate), '日'
-    )
-  } else {
-    result <- paste0(
-      stringi::stri_pad_left(month(thisDate), width = 2L, pad = '0'),
-      sep,
-      stringi::stri_pad_left(day(thisDate), width = 2L, pad = '0')
-    )
-  }
-
-  return(result)
-}
-
-
 #' Better \code{as.POSIXct}
 #'
 #' \code{as.Time} accepts a great variety of formatted dates and time, eg.
@@ -151,3 +54,7 @@ as.Time <- function(STR, FORMAT, OFFSET = '+0800', tz = 'Asia/Chongqing', remove
 
   return(result)
 }
+
+
+# dttm_pattern <- fread('tmp/dttm_pattern.csv')
+# devtools::use_data(dttm_pattern, xlsxStyles, internal = TRUE, overwrite = TRUE)
