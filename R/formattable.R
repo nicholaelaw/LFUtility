@@ -51,12 +51,21 @@ format2times  <- function(X) {
 
 #' @rdname format2pretty
 #' @export format2money
-format2money  <- function(X, digits = 0L, scale = 10000L, with_unit = TRUE) {
+format2money <- function(X, digits = 0L, scale = 10000L, with_unit = TRUE) {
   result <- formattable::formattable(
     x = X / scale, format = 'f', big.mark = ',', digits = digits,
     postproc = ifelse(with_unit, 'postproc2money', 'postprocNULL')
   )
   return(result)
+}
+
+#' @rdname format2pretty
+#' @export f2money
+f2money  <- function(X, digits = 2L, scale = 1, prefix = '', suffix = '') {
+  result <- formattable::formattable(
+    x = X / scale, format = 'f', big.mark = ',', digits = digits
+  )
+  return(result %>% formattable::prefix(prefix = '') %>% formattable::suffix(suffix = ''))
 }
 
 #' @rdname format2pretty
@@ -92,7 +101,7 @@ format2days <- function(X, digits = 0L) {
 # Preprocessing -----------------------------------------------------------
 #' @export preproc2money
 preproc2money  <- function(VALUE) {
-  result <- VALUE / 10000
+  # result <- VALUE / 10000
   return(result)
 }
 

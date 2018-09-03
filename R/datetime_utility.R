@@ -56,5 +56,5 @@ as.Time <- function(STR, FORMAT, OFFSET = '+0800', tz = 'Asia/Chongqing', remove
 }
 
 
-# dttm_pattern <- fread('tmp/dttm_pattern.csv')
+# dttm_pattern <- data.table::fread('tmp/dttm_pattern.csv')
 # devtools::use_data(dttm_pattern, xlsxStyles, internal = TRUE, overwrite = TRUE)

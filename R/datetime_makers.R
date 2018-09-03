@@ -64,6 +64,17 @@ make.yyyymmdd <- function(DATE, sep = '-', useChar = FALSE) {
   return(result)
 }
 
+#' @export make.YmdH
+make.YmdH <- function(X) {
+  result <- paste0(
+    lubridate::year(X), '-',
+    lubridate::month(X), '-',
+    lubridate::day(X), 'T',
+    lubridate::hour(X), ':00', ':00'
+  )
+  return(result)
+}
+
 #' @export make.mmdd
 #' @family datetime makers
 make.mmdd <- function(DATE, sep = '-', useChar = FALSE) {
@@ -145,6 +156,7 @@ make.dtRange <- function(STR, LEN = 1L, unit = 'days', natural = TRUE, incUB = F
   return(result)
 }
 
+#’ elementary implementation of \code{make.dtRange}, accepts length 1 input
 make.dtRange.singular <- function(STR, LEN = 1L, unit = 'days', natural = TRUE, incUB = FALSE) {
 
   # months are handled by base method. The rest goes to lubridate
@@ -170,4 +182,44 @@ make.dtRange.singular <- function(STR, LEN = 1L, unit = 'days', natural = TRUE, 
 
   # return in ascending order, so that it is consistent.
   return(c(min(lb, ub), max(lb, ub)))
+}
+
+#' produce a time interval by specifying two endpoints
+#' @export make.dtIntv
+make.dtIntv <- function(T1, T2, unit = 'days', natural = TRUE, incUB = FALSE) {
+  if (length(T1) != length(T2)) {
+    stop('T1 and T2 length mismatch. Recyling not supported.')
+  } else if (length(T1) == 1L) {
+    result <- make.dtIntv.singular(T1, T2, unit, natural, incUB)
+  } else {
+    result <- list(
+      T1, T2
+    ) %>% data.table::transpose(
+    ) %>% lapply(
+      .,
+      function(v, unit, natural, incUB) {make.dtIntv.singular(v[1L], v[2L], unit, natural, incUB)},
+      unit = unit, natural = natural, incUB = incUB
+    )
+  }
+
+  return(result)
+}
+
+#‘ elementary implementation of \code{make.dtIntv}, accepts length 1 input
+make.dtIntv.singular <- function(T1, T2, unit = 'days', natural = TRUE, incUB = FALSE) {
+  if (T1 == T2) {
+
+  }
+
+  if (natural) {
+    lb <- lubridate::floor_date(min(as.Time(c(T1, T2))), unit = unit)
+    ub <- lubridate::ceiling_date(
+      max(as.Time(c(T1, T2))), unit = unit, change_on_boundary = TRUE
+    ) - {if (incUB) 0L else 1L}
+  } else {
+    lb <- min(as.Time(c(T1, T2)))
+    ub <- max(as.Time(c(T1, T2))) - {if (incUB) 0L else 1L}
+  }
+
+  return(c(lb, ub))
 }
